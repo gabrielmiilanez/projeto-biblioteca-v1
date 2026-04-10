@@ -1,0 +1,20 @@
+from flask import Flask
+from db import db
+from routes import routes
+
+app = Flask(__name__)
+
+# Config do banco local
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+db.init_app(app)
+app.register_blueprint(routes)
+
+# Criando banco de Dados
+with app.app_context():
+    db.create_all()
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8080, host='0.0.0.0')
+    
