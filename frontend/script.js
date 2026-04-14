@@ -11,7 +11,7 @@ if (form) {
             description: document.getElementById("description").value
         };
 
-        const response = await fetch("/books", {
+        const response = await fetch("http://127.0.0.1:8080/books", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -30,7 +30,7 @@ if (form) {
 const container = document.getElementById("booksContainer");
 
 if (container) {
-    fetch("/books")
+    fetch("http://127.0.0.1:8080/books")
         .then(res => res.json())
         .then(data => {
             data.forEach(book => {
@@ -50,7 +50,7 @@ if (container) {
 
 // Deletar livro
 async function deleteBook(id) {
-    await fetch(`/books/${id}`, {
+    await fetch(`http://127.0.0.1:8080/books/${id}`, {
         method: "DELETE"
     });
 

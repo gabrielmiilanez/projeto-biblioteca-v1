@@ -9,15 +9,6 @@ routes = Blueprint("routes", __name__)
 def home():
     return render_template("index.html")
 
-@routes.route("/addbook")
-def new_book():
-    return render_template("addBook.html")
-
-@routes.route("/listbooks")
-def list_books():
-    books = Book.query.all()
-    return render_template("books.html", books=books)
-
 #Criar novo livro
 @routes.route("/books", methods=["POST"])
 def create_book():

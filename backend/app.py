@@ -4,6 +4,9 @@ from routes import routes
 
 app = Flask(__name__)
 
+from flask_cors import CORS
+CORS(app, resources={r"/*": {"origins": "*"}})
+
 # Config do banco local
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
