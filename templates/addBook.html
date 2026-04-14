@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adicionar Novo Livro</title>
+  </head>
+  <body>
+    <h1>Adicionar Novo Livro</h1>
+    <form id="bookForm"" method="POST">
+      <label for="title">Título:</label><br />
+      <input type="text" id="title" name="title" required /><br />
+      <label for="author">Autor:</label><br />
+      <input type="text" id="author" name="author" required /><br />
+      <label for="description">Descrição:</label><br />
+      <input type="text" id="description" name="description" required /><br /><br />
+      <input type="submit" value="Adicionar Livro" />
+    </form>
+    
+    <p id="message"></p>
+
+    <div class="menu">
+        <a href="/">Voltar para página inicial</a>
+    </div>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>
