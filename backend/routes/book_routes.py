@@ -1,13 +1,13 @@
 from flask import Blueprint, render_template, request, jsonify
-from db import db
-from models import Book
+from database.db import db
+from models.book import Book
 
 routes = Blueprint("routes", __name__)
 
 #Criando rota para página inicial
-@routes.route("/")
+@routes.route("/", methods=["GET"])
 def home():
-    return render_template("index.html")
+    return "a API está funcionando! Acesse /books para ver os livros cadastrados."
 
 #Criar novo livro
 @routes.route("/books", methods=["POST"])

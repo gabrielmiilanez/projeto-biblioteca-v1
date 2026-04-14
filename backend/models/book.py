@@ -1,4 +1,4 @@
-from db import db
+from database.db import db
 
 # Criando Modelo de Classe para Livro
 class Book(db.Model):

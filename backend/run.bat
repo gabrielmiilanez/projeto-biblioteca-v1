@@ -1,1 +1,1 @@
-python -m flask --app .\app.py run --host 0.0.0.0 --port 8080
+python -m flask --app .\app\app.py run --host 0.0.0.0 --port 8080

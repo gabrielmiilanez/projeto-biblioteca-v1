@@ -1,6 +1,6 @@
-from flask import Flask, render_template
-from db import db
-from routes import routes
+from flask import Flask
+from database.db import db
+from routes.book_routes import routes
 
 app = Flask(__name__)
 
