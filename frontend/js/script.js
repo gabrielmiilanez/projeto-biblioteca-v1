@@ -1,36 +1,9 @@
-// Adicionar livro
-const form = document.getElementById("bookForm");
+// 
+const bookContainer = document.getElementById("booksContainer");
 
-if (form) {
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const data = {
-            title: document.getElementById("title").value,
-            author: document.getElementById("author").value,
-            description: document.getElementById("description").value
-        };
-
-        const response = await fetch("http://127.0.0.1:8080/books", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-
-        const result = await response.json();
-
-        document.getElementById("message").innerText =
-            "Livro criado com sucesso!";
-    });
-}
-
-// Listar livros
-const container = document.getElementById("booksContainer");
-
-if (container) {
-    fetch("http://127.0.0.1:8080/books")
+/// Listar livros
+if (bookContainer) {
+    fetch(bookURL)
         .then(res => res.json())
         .then(data => {
             data.forEach(book => {
@@ -40,17 +13,23 @@ if (container) {
                 div.innerHTML = `
                     <h3>${book.title}</h3>
                     <p>${book.author}</p>
+                    <button onclick="goToEdit(${book.id})">Editar</button>
                     <button onclick="deleteBook(${book.id})">Excluir</button>
                 `;
 
-                container.appendChild(div);
+                bookContainer.appendChild(div);
             });
         });
 }
 
+// Redirecionar para página de edição
+function goToEdit(id) {
+    window.location.href = `editBook.html?id=${id}`;
+}
+
 // Deletar livro
 async function deleteBook(id) {
-    await fetch(`http://127.0.0.1:8080/books/${id}`, {
+    await fetch(`${bookURL}/${id}`, {
         method: "DELETE"
     });
 

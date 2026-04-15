@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Adicionar Novo Livro</h1>
-    <form id="bookForm"" method="POST">
+    <form id="bookForm"onsubmit="submitCreation(event)">
       <label for="title">Título:</label><br />
       <input type="text" id="title" name="title" required /><br />
       <label for="author">Autor:</label><br />
@@ -23,6 +23,7 @@
         <a href="/">Voltar para página inicial</a>
     </div>
 
-    <script src="./js/script.js"></script>
+    <script src="api/api.config.js"></script>
+    <script src="addBook.cb.js"></script>
   </body>
 </html>

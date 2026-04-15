@@ -43,6 +43,20 @@ def get_book(id):
     book = Book.query.get_or_404(id)
     return jsonify(book.to_dict())
 
+# Editar
+@routes.route("/books/<int:id>", methods=["PUT"])
+def update_book(id):
+    book = Book.query.get_or_404(id)
+    data = request.get_json()
+
+    book.title = data["title"]
+    book.author = data["author"]
+    book.description = data.get("description")
+
+    db.session.commit()
+    
+    return jsonify(book.to_dict())
+
 # Deletar
 @routes.route("/books/<int:id>", methods=["DELETE"])
 def delete_book(id):

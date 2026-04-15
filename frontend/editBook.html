@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editar Livro</title>
   </head>
-  <body>
+  <body onload="loadBookData()">
     <h1>Editar Livro</h1>
-    <form id="bookForm"" method="POST">
+    <form id="bookEditForm" onsubmit="submitEdition(event)">
       <label for="title">Título:</label><br />
       <input type="text" id="title" name="title" required /><br />
       <label for="author">Autor:</label><br />
@@ -23,6 +23,7 @@
         <a href="/">Voltar para página inicial</a>
     </div>
 
-    <script src="./js/script.js"></script>
+    <script src="api/api.config.js"></script>
+    <script src="editBook.cb.js"></script>
   </body>
 </html>
