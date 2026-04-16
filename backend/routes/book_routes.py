@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, request, jsonify
+from flask import Blueprint, request, jsonify
+from backend.models import book
 from database.db import db
 from models.book import Book
 
@@ -14,12 +15,16 @@ def home():
 def create_book():
     data = request.get_json()
 
-    book = Book(
-        title=data["title"],
-        author=data["author"],
-        description=data.get("description")
-    )
+    if not data or "title" not in data or "author" not in data:
+        return jsonify({"error": "título e autor são obrigatórios"}), 400
 
+    book = Book(
+    title=data["title"],
+    author=data["author"],
+    bookImage=data.get("bookImage"),
+    description=data.get("description")
+    )
+    
     db.session.add(book)
     db.session.commit()
 
@@ -32,7 +37,7 @@ def get_books():
     return jsonify([book.to_dict_brief() for book in books])
 
 # Detalhar livros
-@routes.route("/books/<int:id>", methods=["GET"])
+@routes.route("/books/<int:id>/detailed", methods=["GET"])
 def get_books_detailed(id):
     book = Book.query.get_or_404(id)
     return jsonify(book.to_dict())
@@ -49,9 +54,13 @@ def update_book(id):
     book = Book.query.get_or_404(id)
     data = request.get_json()
 
-    book.title = data["title"]
-    book.author = data["author"]
-    book.description = data.get("description")
+    if not data:
+        return jsonify({"error": "dados inválidos"}), 400
+
+    book.title = data.get("title", book.title)
+    book.author = data.get("author", book.author)
+    book.bookImage = data.get("bookImage", book.bookImage)
+    book.description = data.get("description", book.description)
 
     db.session.commit()
     
@@ -64,4 +73,4 @@ def delete_book(id):
     db.session.delete(book)
     db.session.commit()
     
-    return jsonify({"message": "Livro deletado"})
+    return jsonify({"message": "Livro deletado"}), 200

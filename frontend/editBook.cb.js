@@ -10,6 +10,7 @@ async function loadBookData() {
 
         document.getElementById("title").value = data.title;
         document.getElementById("author").value = data.author;
+        document.getElementById("bookImage").value = data.bookImage;
         document.getElementById("description").value = data.description;
     } else {
         document.getElementById("message").innerText =
@@ -27,6 +28,7 @@ async function submitEdition(event)
     let data = {
                 title: document.getElementById("title").value,
                 author: document.getElementById("author").value,
+                bookImage: document.getElementById("bookImage").value,
                 description: document.getElementById("description").value
             };
 

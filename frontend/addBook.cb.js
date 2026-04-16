@@ -7,6 +7,7 @@ async function submitCreation(event)
     let data = {
                 title: document.getElementById("title").value,
                 author: document.getElementById("author").value,
+                bookImage: document.getElementById("bookImage").value,
                 description: document.getElementById("description").value
             };
 

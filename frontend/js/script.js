@@ -12,6 +12,7 @@ if (bookContainer) {
 
                 div.innerHTML = `
                     <h3>${book.title}</h3>
+                    <img src="${book.bookImage}" alt="${book.title}" />
                     <p>${book.author}</p>
                     <button onclick="goToEdit(${book.id})">Editar</button>
                     <button onclick="deleteBook(${book.id})">Excluir</button>
