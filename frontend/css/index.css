@@ -1,0 +1,54 @@
+#booksContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .book {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+
+    h3 {
+        margin-top: 10px;
+        color: #333;
+    }
+
+    p {
+        color: #666;
+        margin-bottom: 15px;
+    }
+
+    .bookImage {
+        width: 150px;
+        height: 200px;
+    }
+
+    .editButton {
+        padding: 10px 15px;
+        border: none;
+        background-color: #dbb81c;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+        background-color: #7e690c;
+        }
+    }
+        .deleteButton {
+        padding: 10px 15px;
+        border: none;
+        background-color: #dc3545;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+        background-color: #c82333;
+        }
+    }
+    } 
+}

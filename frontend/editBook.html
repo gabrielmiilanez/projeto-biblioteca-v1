@@ -4,9 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editar Livro</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/editBook.css" />
   </head>
   <body onload="loadBookData()">
-    <h1>Editar Livro</h1>
+    <header>
+      <h1>Biblioteca Virtual</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="./addBook.html">Adicionar Livro</a>
+      </nav>
+    </header>
+
+    <h2>Editar Livro</h2>
+
     <form id="bookEditForm" onsubmit="submitEdition(event)">
       <label for="title">Título:</label><br />
       <input type="text" id="title" name="title" required /><br />
@@ -21,11 +32,7 @@
     
     <p id="message"></p>
 
-    <div class="menu">
-        <a href="/">Voltar para página inicial</a>
-    </div>
-
     <script src="api/api.config.js"></script>
-    <script src="editBook.cb.js"></script>
+    <script src="js/editBook.cb.js"></script>
   </body>
 </html>

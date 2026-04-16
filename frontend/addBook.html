@@ -4,28 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adicionar Novo Livro</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/addBook.css" />
   </head>
   <body>
-    <h1>Adicionar Novo Livro</h1>
-    <form id="bookForm"onsubmit="submitCreation(event)">
+    <header>
+      <h1>Biblioteca Virtual</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="./addBook.html">Adicionar Livro</a>
+      </nav>
+    </header>
+
+    <h2>Adicionar Novo Livro</h2>
+
+    <form id="bookForm" onsubmit="submitCreation(event)">
       <label for="title">Título:</label><br />
       <input type="text" id="title" name="title" required /><br />
       <label for="author">Autor:</label><br />
       <input type="text" id="author" name="author" required /><br />
-      <label for="bookImage">Imagem do Livro:</label><br />
+      <label for="bookImage">Imagem do Livro(url):</label><br />
       <input type="text" id="bookImage" name="bookImage" /><br />
       <label for="description">Descrição:</label><br />
       <input type="text" id="description" name="description" /><br /><br />
       <input type="submit" value="Adicionar Livro" />
     </form>
-    
+
     <p id="message"></p>
 
-    <div class="menu">
-        <a href="/">Voltar para página inicial</a>
-    </div>
-
     <script src="api/api.config.js"></script>
-    <script src="addBook.cb.js"></script>
+    <script src="js/addBook.cb.js"></script>
   </body>
 </html>

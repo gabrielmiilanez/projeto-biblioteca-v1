@@ -11,11 +11,11 @@ if (bookContainer) {
                 div.classList.add("book");
 
                 div.innerHTML = `
+                    <img class="bookImage" src="${book.bookImage}" alt="${book.title}" />
                     <h3>${book.title}</h3>
-                    <img src="${book.bookImage}" alt="${book.title}" />
                     <p>${book.author}</p>
-                    <button onclick="goToEdit(${book.id})">Editar</button>
-                    <button onclick="deleteBook(${book.id})">Excluir</button>
+                    <button class="editButton" onclick="goToEdit(${book.id})">Editar</button>
+                    <button class="deleteButton" onclick="deleteBook(${book.id})">Excluir</button>
                 `;
 
                 bookContainer.appendChild(div);
